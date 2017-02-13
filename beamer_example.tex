@@ -1,0 +1,625 @@
+\documentclass{beamer}
+
+% theme
+\mode<presentation>
+{
+\usetheme{Warsaw}
+
+\setbeamercovered{transparent}
+}
+
+% packges
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{multicol}
+
+% setting
+\linespread{1.2}
+
+% title page
+\title{Consumer Price Search and Platform Design\\ in Internet Commerce}
+\subtitle{Dinerstein et.al. (2014)}
+\author{Guo Zhang}
+\institute[Universities of]
+{
+WISE, Xiamen University
+}
+\date{This Version: \today}
+\subject{Literatures}
+
+% body
+\begin{document}
+\begin{frame}[plain]
+\maketitle
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Contents}
+\begin{multicols}{2}
+% \small
+\tableofcontents
+\end{multicols}
+\end{frame}
+
+\section{Introduction}
+\begin{frame}
+\frametitle{Background}
+\begin{itemize}
+\item No definitive study measuring online mark-ups
+\item Ways of structuring online search affect price competition and consumer purchase patterns
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview}
+\begin{itemize}
+\item Note: this subsection is not well-organized. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Literatures Review}
+\begin{itemize}
+\item Search frictions and price competition
+  \begin{itemize}
+  \item Theoretical: Stigler (1961)
+  \item Empirical: Hortacsu and Syverson (2003); Hong and Shum (2006); Hortacsu et al. (2012)
+  \end{itemize}
+\item Online Price dispersion
+  \begin{itemize} 
+  \item Bailey (1998); Smith and Brynjolfsson (2001); Baye, Morgan, and Scholten (2004); Einav et al. (forthcoming)
+  \end{itemize}
+\item Price elasticity estimation
+  \begin{itemize}
+  \item Ellison and Ellison (2009); Einav et al. (2014)
+  \end{itemize}
+\framebreak
+\item Limited consumer search
+  \begin{itemize}
+  \item Malmendier and Lee (2011)
+  \end{itemize}
+\item Consumer search across different websites
+  \begin{itemize}
+  \item Ellison and Ellison (2014)
+  \end{itemize}
+\item Two-sided matching
+  \begin{itemize}
+  \item Fradkin (2014); Horton (2014)
+  \end{itemize}
+\end{itemize} 
+\end{frame}
+
+\section{Search Design in Online Markets}
+\begin{frame}
+\frametitle{Two Dimensions of Consumer Online Search}
+\begin{itemize}
+\item Guide consumers toward relevant products
+  \begin{itemize}
+  \item User query
+  \item Advertising
+  \item Recomendations
+  \end{itemize}
+\item "Price search": Help consumers to find attractive prices (focused by this paper)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Different Approaches for Search Problems}
+\begin{itemize}
+\item Identifying relevant goods: SKUs or catalog numbers % what is SKU?
+\item Presenting information
+  \begin{itemize}
+  \item Ordered by listing date: Craigslist % what's Craigslist?
+  \item Ordered by price: Amazon
+  \item Between two approaches: Google Shopping
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Trade-offs of Different Approaches to Search Design}
+\begin{itemize}
+\item Ordered by listing date
+  \begin{itemize}
+  \item Advantages: more difficult for buyers to find the lowest prices
+  \item Disadvantages: provide opportunities for sellers less professional in categorizing products
+  \end{itemize}
+\item Ordered by prices
+\begin{itemize}
+\item Advantages: promote price competition
+\item Disadvantages: provide sellers with incentives to "obfuscate"
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Redesign of eBay's Search Processes ??}
+% Figure 2
+\begin{itemize}
+\item Before: Best Match
+  \begin{itemize}
+  \item Not for individual users
+  \item Not consider price explicitly % directly 
+  \item Difficulty for filtering unrelated goods
+  \end{itemize}
+\item After: two-stage design
+  \begin{itemize}
+  \item Search pages with relevant product models
+  \item Product pages with top-rated seller presented together, ranked by the lowest posted price+shipping (but never seen)
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Effect of Platform Change on Search and Prices}
+\begin{frame}
+\frametitle{Data Source}
+\begin{itemize}
+\item Time horizon 
+\begin{itemize}
+\item Before: traditional Best Match
+\item After: new product page as default
+\end{itemize}
+\item Category
+\begin{itemize}
+\item Most commonly transacted (to avoid changes during the sample period with half a year)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Table 1}
+\end{frame}
+
+\begin{frame}
+\frametitle{General Patterns}
+\begin{itemize}
+\item Average number of listings: 16-41
+\item Variation in prices (measured by 75th price/25th price)
+\item Extreme prices: dramatic
+\item Consumer purchase goods with 25-40th price percentile at most
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comparison between Two Periods}
+\begin{itemize}
+\item Variation in decreases of transacted prices 
+\item Variation in decreases of post prices (reflected) 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Consumer Search Patterns}
+\begin{itemize}
+\item Consumers buy cheaper items ??
+\item Shares of top-rated sellers increase
+\item Low-prices top-rated sellers promoted
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Figure 3}
+\end{frame}
+
+\begin{frame}
+\frametitle{Consideration Set}
+\begin{itemize}
+\item Data: Halo Reach
+\item Changes:
+\begin{itemize}
+\item Size increases
+\item Clicks decreases
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Model}
+\subsection{Consumer Demand}
+\begin{frame}
+\frametitle{Utility Function}
+$$
+u_{ij}  =  \alpha_0+\alpha_1 p_j + \alpha_2 TRS_j+ \alpha_3 p_j TRS_j + \varepsilon_{ij}
+$$
+\begin{itemize}
+\item i: consumer
+\item j: product
+\item p: price
+\item TRS: top-rated seller
+\begin{itemize}
+\item TRS = 1: $u_{ij}  =  (\alpha_0+\alpha_2)+(\alpha_1+\alpha_3) p_j + \varepsilon_{ij}$
+\item TRS = 0: $u_{ij}  =  \alpha_0+\alpha_1 p_j + \varepsilon_{ij}$
+\end{itemize}
+\item $\varepsilon$: logit error, Type I extreme value
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Consideration Set}
+\begin{itemize}
+\item Consumers choose utility-maximizing option in their consideration set $J_i \subseteq \mathbf{J}$
+\begin{itemize}
+\item Consideration set: $J_i$
+\item Set of all available offerings $\mathbf{J}$
+\end{itemize}
+\item Outside goods: $u_{i0} = \varepsilon_{i0}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Demand Parameter Estimation}
+\begin{itemize}
+\item Browsing data $\to$ Consideration set and resulting choices ???
+\item Assumption: the consideration set includes all the listings on the page seen by the consumer following his last search query
+\begin{itemize}
+\item Before: listings page
+\item After: product page
+\end{itemize}
+\item Demand estimation: multinomial logit choice probabilities
+\end{itemize}
+\end{frame}
+
+\subsection{Consideration Set}
+\begin{frame}
+\frametitle{Sample Weight}
+\begin{itemize}
+\item Question: which sellers make it into the consideration set?
+\item Sample weight\\(Wallenius' non-central hypergeometric distribution): 
+$$
+w_j = exp[
+-\gamma 
+(
+\frac{p_j- min_{k\in \mathbf{J}} (p_k)}{std_{k\in \mathbf{J}}(p_k)}
+)
+]
+$$
+\begin{itemize}
+\item Before: $\gamma=0$, price did not factor directly into search ranking
+\item After: $\gamma>0$, price plays a predominant role  
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Wallenius' Non-central Hypergeometric Distribution}
+\begin{itemize}
+\item Hypergeometric distribution: \\ \quad the probability of k successes in n draws without replacement from a finite population of size N that contains exactly K successes
+\item Non-central hypergeometric distribution: unequal weight for each success   ??
+  \begin{itemize}
+  \item Wallenius: Competition between successes
+  \item Fisher: Simultaneously or independently of each other
+  \end{itemize} 
+\end{itemize}
+\end{frame}
+
+\subsection{Price Behavior}
+\begin{frame}
+\frametitle{Nash Equlibrium}
+$$
+\max_{p_j}(p_j-c_j)D_j(p_j)
+$$
+\begin{itemize}
+\item $D_j(p_j)$: probability of a given buyer selects j's product, given the set of offerings $\mathbf{J}$ ??
+\footnotesize{
+$$
+D_j(p_j) = \sum_{J: j\in J \subseteq \mathbf{J}}
+[
+\frac{exp( \alpha_0+\alpha_1 p_j + \alpha_2 TRS_j+ \alpha_3 p_j TRS_j)}{1+sum_{k\in J}exp( \alpha_0+\alpha_1 p_k + \alpha_2 TRS_k+ \alpha_3 p_k TRS_k)}
+]
+Pr(J|\mathbf{J})
+$$
+}
+\normalsize
+\item $p_j$: sellers do not change prices often in practice in the short run
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Price Incentive of Sellers}
+\begin{itemize}
+\item $D_j(p_j)=A_j(p_j)Q_j(p_j)$
+  \begin{itemize}
+  \item $A_j$:  probability that the listing enters the consideration set given $p_j$ and $\mathbf{J}$ 
+  \item $Q_j$: probability that the consumer purchases item j conditional on being in the listing set
+  \end{itemize}
+\item Optimal price:
+$$
+\frac{p_j}{c_j}
+=(1+\frac{1}{\eta_D})^{-1}
+=(1+\frac{1}{\eta_A+\eta_Q})^{-1}
+$$
+  \begin{itemize}
+  \item $\eta_D$,$\eta_A$,$\eta_Q$: respective price elasticities
+  \end{itemize}
+\framebreak
+\item 
+\begin{tabular}{lllll}
+\multirow{4}{1cm}{$\gamma>0$} 
+& & $\eta_A < 0$ &($\gamma \uparrow \to \eta_A$) \\
+& $\nearrow$ & \\
+& $\searrow$ & \\
+& & $\eta_Q < 0$ \\
+\end{tabular}
+\end{itemize}
+\end{frame}
+
+\subsection{Discussion}
+\begin{frame}
+\frametitle{ Stahl's (1989) Search Model}
+\begin{itemize}
+\item Two types of consumers:
+\begin{itemize}
+\item who (optimally) sample a single offer completely at random
+\item who sample all the offers
+\end{itemize} 
+          $\to$ $L \in \{1,|\mathbf{J}| \}$ and $\gamma=0$  ??
+\item ??
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Directions to Be Extend}
+\begin{itemize}
+\item Heterogeneity among sellers or consumers
+\begin{itemize}
+\item Seller: distinguish between price-elastic searchers and price-inelastic "convenience" shoppers ??
+\end{itemize}
+\item Search rank
+\begin{itemize}
+\item Less dramatic
+\item Harder to interpret
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Empirical Estimates}
+\subsection{Estimation Sample}
+\begin{frame}
+\frametitle{Estimation Sample}
+\begin{itemize}
+\item Product: single, well-defined - popular Microsoft Xbox 360 video game, Halo Reach
+\begin{itemize}
+\item A large number of units transact on eBay
+\item Relatively stable supply and demand during the observation period
+\end{itemize}
+\item 
+\end{itemize}
+\end{frame}
+
+\subsection{Descriptive Statistics}
+
+\subsection{Model Estimates}
+\begin{frame}
+\frametitle{Demand Parameters: Methods}
+\begin{itemize}
+\item Standard logit demand with individual-level data and observed individual-specific consideration sets
+\item Maximum likelihood, restricting attention only to consumer data from the \textbf{before} period
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Demand Parameters: Results}
+% Table 3
+\begin{itemize}
+\item Top-rated sellers(TRS): \$10 discount (of an average price of less than \$40) - very large(no advantage for the before period)
+\item Price elasticity: -10 (-13 for TRS)
+\item Profit margin(profit/revenue): 10\%
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Consideration Set Model: Methods}
+\begin{itemize}
+\item Estimate distribution of $L_i$ (the number of items sampled by a consumer) 
+\begin{itemize}
+\item directly from the browsing data
+\item separately for the before and after periods
+\end{itemize}
+\item Estimate the sampling parameter $\gamma$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Consideration Set Model: Results}
+\begin{itemize}
+\item Distribution of $L_i$: Figure 3
+% Figure 3
+\item Sample parameter $\gamma$
+  \begin{itemize}
+  \item Before: 0 
+  \item After : 0.81 \\?? - a ten percent reduction in the posted price would, on average, make the listing 29\% more likely to be part of a consumer's consideration set
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Seller Costs: Methods}
+$$
+c_j = p_j +\frac{D_j(p_j)}{D'_j(p_j)}
+$$
+\begin{itemize}
+\item Demand parameters + consideration set model $\to D_j$
+\item First order condition: $D_j \to D'_j$
+\item Back out the cost $c_j$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mathematical Note: Proof}
+\begin{align*}
+f(p_j)&=(p_j-c_j)D_j(p_j) \\
+\intertext{First order condition:}
+\frac{d f}{d p_j} &= D_j(p_j)+ (p_j-c_j)D'_j(p_j)  \\
+&= 0 \\
+\intertext{Therefore,}
+c_j &= p_j +\frac{D_j(p_j)}{D'_j(p_j)} \\
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Seller Costs: Results}
+\begin{itemize}
+\item Figure 4
+\item High dispersion of seller costs
+\end{itemize}
+\end{frame}
+
+\section{Applying the Model}
+\subsection{Changing the Search Design}
+\begin{frame}
+\frametitle{Methods}
+\begin{itemize}
+\item Assumption: consumer choice behavior and sell cost distribution remain unchanged
+\item Method: combine our demand and cost estimates from the before period with estimates of the consideration set process from the after period
+\item Goal: calculate equilibrium prices and expected sales with the post-redesign search process
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results}
+\begin{itemize}
+\item Demand is more responsive to seller prices
+  \begin{itemize}
+  \item Demand becomes more elastic
+  \item Seller margin falls by 20\%
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Factors Contributed to the Shift of Seller Incentives}
+\begin{itemize}
+\item Increase in the size of consideration set
+\item Price became an important factor in entering the consideration set
+\item Increase in the number of available listings
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Evaluate the Importance Three Factors}
+\begin{itemize}
+\item Methods
+\begin{itemize}
+\item Separately impose three effects
+\item Calculate new price equilibrium $\to$ equilibrium margins and purchase rates
+\end{itemize}
+\item Results
+  \begin{itemize}
+  \item Increase in $\gamma$ - large effect
+  \item Increase in listings - small effect
+  \item Increase in consideration set size - small effect
+  \end{itemize}
+\framebreak
+\item Question
+  \begin{itemize}
+  \item Whether the model's predictions for the after period are similar to the outcomes we actually observe
+  \end{itemize}
+\item Comparsion
+  \begin{itemize}
+  \item Distribution of seller prices: match quite well (Figure 6)
+  \item Consumer purchase rate: reasonably close (Table 3) 
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Search Friction and Price Dispersion}
+\begin{frame}
+\frametitle{Reasons for High Degree of Price Dispersion}
+\begin{itemize}
+\item Dispersion in costs
+\item Search frictions
+\item Perceived seller differentiation
+\end{itemize}
+\end{frame}
+
+% Tough math
+
+\subsection{Discussion and Extensions}
+\begin{frame}
+\frametitle{Discussion and Extensions}
+\begin{itemize}
+\item 
+\end{itemize}
+\end{frame}
+
+\section{A/B Experiment}
+\begin{frame}
+\frametitle{Experiment Design}
+\begin{itemize}
+\item Method:
+\begin{itemize} 
+\item Users were randomly assigned to be shown either product page or Best Match results in response to a search query if the product page existed
+\item After being shown initial results, users could browse to the other type of listing
+\end{itemize}
+\item Goal: test whether conditional on both types of results being available, it was better to start users with relevance results
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Phenomena}
+\begin{itemize}
+\item The experiment did succeed in steering users toward particular results
+\item Best Match group had a higher purchase rate
+\item The Best Match group also had \textbf{slightly} higher average transacted prices
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data}
+\begin{itemize}
+\item Observations: All purchases from the experimental user sessions $\to$ Select product pages that were visited at least 1,000 times in the experiment
+\item Entities: 4,250 different products, and 30,696 different listings that had purchases
+\item Period: July 25, 2012 to August 30, 2012
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Measuring Product Homogeneity}
+\begin{itemize}
+\item Relevance ranking might have been particularly effective for differentiated products
+\item $\to$ Need a proxy for each product's level of homogeneity
+\item $\to$ The fraction of product listings with the most common title on the product code
+\item $\to$ Group products depend on whether their top listing share is in the top quartile (less heterogeneous), middle half, or bottom quartile (more heterogeneous) ??
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results}
+\begin{itemize}
+\item The Best Match treatment looks best for the more heterogeneous products
+  \begin{itemize}
+  \item Purchases under the product page
+  \item Average percentage effect on sales
+  \end{itemize}
+\item  Price search problem is just one dimension of the broader platform problem when there are a large variety of products, many of which are heterogeneous and may involve richer consumer search processes
+\end{itemize}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}
+\frametitle{Conclusion}
+\begin{itemize}
+\item Explore search frictions in online commerce, and the role of search design in reducing them
+\item Price search and price competition and homogenous products
+\item Develop from theory literatures 
+\item Explain price dispersion, seller margins and the effects of changes in the search ranking
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Shortcomings}
+\begin{itemize}
+\item Price just one of the dimensions along which consumers are searching
+\item Orienting a platform toward price search may not work as well for heterogeneous products
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[plain]
+\frametitle{Contents}
+\begin{multicols}{2}
+% \small
+\tableofcontents
+\end{multicols}
+\end{frame}
+
+\end{document}
