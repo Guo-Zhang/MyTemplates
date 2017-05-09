@@ -1,0 +1,8 @@
+PWD /Users/zhangguo/Application_Materials/CV_templates/tex_template_4
+INPUT /usr/local/texlive/2016/texmf.cnf
+INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT structure.tex
+OUTPUT structure.log
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
